@@ -30,10 +30,16 @@ if not SUPABASE_URL or not SUPABASE_KEY or SUPABASE_URL == "sua_url_do_supabase_
 
 # Inicializa o cliente Supabase
 try:
-    supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+    # Remove o tipo hint que pode causar problemas
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
     print("✓ Conectado ao Supabase com sucesso!")
 except Exception as e:
     print(f"✗ Erro ao conectar ao Supabase: {e}")
+    print("\n💡 Possíveis soluções:")
+    print("1. Verifique se as credenciais no arquivo .env estão corretas")
+    print("2. Tente: python -m pip install --upgrade supabase")
+    print("3. Ou instale uma versão específica: python -m pip install supabase==2.0.3")
+    input("\nPressione ENTER para sair...")
     exit()
 
 # Nome da tabela no Supabase

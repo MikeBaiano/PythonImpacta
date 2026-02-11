@@ -1,3 +1,5 @@
+import math
+
 # def mdc(a: int, b: int) -> int:
 # 	a = abs(a)
 # 	b = abs(b)
@@ -51,7 +53,6 @@ print(f"\nA força gravitacional entre os corpos é: {forca:.2e} N")
 
 
 # ========== EQUAÇÃO DO SEGUNDO GRAU ==========
-import math
 
 
 def equacao_segundo_grau(a: float, b: float, c: float):
