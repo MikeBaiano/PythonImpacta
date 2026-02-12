@@ -36,21 +36,21 @@
 # Questão 3: Cálculo de desconto em compras
 # Algoritmo que calcula o desconto em uma compra. Se o valor da compra for acima de 200 reais, se aplica um desconto de 15%. Caso contrário, não se aplica desconto.
 
-print("=== Cálculo de Desconto em Compras ===")
-print()
+# print("=== Cálculo de Desconto em Compras ===")
+# print()
 
-# Entrada de dados - leitura das variáveis
-valor_compra = float(input("Digite o valor da compra: "))
+# # Entrada de dados - leitura das variáveis
+# valor_compra = float(input("Digite o valor da compra: "))
 
-if valor_compra > 200:
-    desconto = valor_compra * 0.15
-else:
-    desconto = 0
+# if valor_compra > 200:
+#     desconto = valor_compra * 0.15
+# else:
+#     desconto = 0
 
-valor_final = valor_compra - desconto
+# valor_final = valor_compra - desconto
 
-print()
-print(f"O valor final da compra é: {valor_final}")
+# print()
+# print(f"O valor final da compra é: {valor_final}")
 
 # Questão 4: Cálculo de média de 5 números
 # Algoritmo que calcula a média de 5 números usando while loop
@@ -67,3 +67,10 @@ media = soma / cont
 print()
 print(f"A média dos 5 números é: {media}")
 
+# Questão 5: Escrever a tabuada de um numero de 1 a 10
+# Algoritmo que escreve a tabuada de um numero de 1 a 10
+
+numero = int(input("Digite um número: "))
+
+for i in range(1, 11):
+    print(f"{numero} x {i} = {numero * i}")
