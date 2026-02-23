@@ -46,31 +46,6 @@ except Exception as e:
 TABELA_ALUNOS = "alunos"
 
 
-def criar_tabela_se_necessario():
-    """
-    Instruções para criar a tabela no Supabase (via SQL Editor):
-
-    CREATE TABLE IF NOT EXISTS alunos (
-        id BIGSERIAL PRIMARY KEY,
-        nome TEXT NOT NULL,
-        nota1 DECIMAL(4,2) NOT NULL,
-        nota2 DECIMAL(4,2) NOT NULL,
-        nota3 DECIMAL(4,2) NOT NULL,
-        media DECIMAL(4,2) NOT NULL,
-        situacao TEXT NOT NULL,
-        created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-    );
-
-    -- Habilitar Row Level Security (RLS)
-    ALTER TABLE alunos ENABLE ROW LEVEL SECURITY;
-
-    -- Política para permitir todas operações (para desenvolvimento)
-    CREATE POLICY "Permitir tudo para todos" ON alunos
-        FOR ALL USING (true);
-    """
-    pass
-
-
 def adicionar_aluno():
     """Adiciona um novo aluno no banco de dados"""
     print("\n--- ADICIONAR ALUNO ---")
@@ -356,26 +331,6 @@ def excluir_aluno():
 # ========== MENU PRINCIPAL ==========
 def menu_principal():
     """Menu interativo do sistema"""
-
-    # Mostra instruções para criar a tabela
-    print("\n" + "=" * 70)
-    print("IMPORTANTE: Certifique-se de que a tabela 'alunos' existe no Supabase")
-    print("=" * 70)
-    print("\nSe ainda não criou, vá no SQL Editor do Supabase e execute:")
-    print("\nCREATE TABLE IF NOT EXISTS alunos (")
-    print("    id BIGSERIAL PRIMARY KEY,")
-    print("    nome TEXT NOT NULL,")
-    print("    nota1 DECIMAL(4,2) NOT NULL,")
-    print("    nota2 DECIMAL(4,2) NOT NULL,")
-    print("    nota3 DECIMAL(4,2) NOT NULL,")
-    print("    media DECIMAL(4,2) NOT NULL,")
-    print("    situacao TEXT NOT NULL,")
-    print("    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()")
-    print(");")
-    print("\nALTER TABLE alunos ENABLE ROW LEVEL SECURITY;")
-    print('\nCREATE POLICY "Permitir tudo" ON alunos FOR ALL USING (true);')
-    print("=" * 70)
-    input("\nPressione ENTER para continuar...")
 
     while True:
         print("\n" + "=" * 70)
