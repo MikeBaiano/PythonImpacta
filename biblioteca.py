@@ -61,64 +61,6 @@ GENEROS_VALIDOS = [
 ]
 
 
-# ========== INSTRUÇÕES SQL PARA CRIAR AS TABELAS ==========
-def mostrar_sql_criacao():
-    """Mostra o SQL necessário para criar as 3 tabelas no Supabase"""
-    sql = """
--- ========================================
--- TABELA: livros
--- ========================================
-CREATE TABLE IF NOT EXISTS livros (
-    id BIGSERIAL PRIMARY KEY,
-    titulo TEXT NOT NULL,
-    autor TEXT NOT NULL,
-    genero TEXT NOT NULL,
-    ano_publicacao INTEGER NOT NULL,
-    quantidade_total INTEGER NOT NULL DEFAULT 1,
-    quantidade_disponivel INTEGER NOT NULL DEFAULT 1,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
-ALTER TABLE livros ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Permitir tudo livros" ON livros FOR ALL USING (true);
-
--- ========================================
--- TABELA: membros
--- ========================================
-CREATE TABLE IF NOT EXISTS membros (
-    id BIGSERIAL PRIMARY KEY,
-    nome TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    telefone TEXT,
-    tipo TEXT NOT NULL CHECK (tipo IN ('Estudante', 'Professor')),
-    ativo BOOLEAN NOT NULL DEFAULT true,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
-ALTER TABLE membros ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Permitir tudo membros" ON membros FOR ALL USING (true);
-
--- ========================================
--- TABELA: emprestimos
--- ========================================
-CREATE TABLE IF NOT EXISTS emprestimos (
-    id BIGSERIAL PRIMARY KEY,
-    livro_id BIGINT NOT NULL REFERENCES livros(id),
-    membro_id BIGINT NOT NULL REFERENCES membros(id),
-    data_emprestimo DATE NOT NULL DEFAULT CURRENT_DATE,
-    data_devolucao_prevista DATE NOT NULL,
-    data_devolucao_real DATE,
-    status TEXT NOT NULL DEFAULT 'Ativo' CHECK (status IN ('Ativo', 'Devolvido', 'Atrasado')),
-    multa DECIMAL(10,2) NOT NULL DEFAULT 0,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
-ALTER TABLE emprestimos ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Permitir tudo emprestimos" ON emprestimos FOR ALL USING (true);
-"""
-    print(sql)
-
-
 # ========== FUNÇÕES DE VALIDAÇÃO ==========
 def validar_email(email):
     """
@@ -928,19 +870,6 @@ def estatisticas_biblioteca():
 # ========== MENU PRINCIPAL ==========
 def menu_principal():
     """Menu interativo do sistema de biblioteca"""
-
-    print("\n" + "=" * 70)
-    print("📚 SISTEMA DE GERENCIAMENTO DE BIBLIOTECA")
-    print("=" * 70)
-    print("\nIMPORTANTE: Certifique-se de que as tabelas existem no Supabase!")
-    print("Se ainda não criou, vá no SQL Editor do Supabase e execute o SQL abaixo.\n")
-
-    mostrar_sql = (
-        input("Deseja ver o SQL para criar as tabelas? (s/n): ").strip().lower()
-    )
-    if mostrar_sql == "s":
-        mostrar_sql_criacao()
-        input("\nPressione ENTER para continuar...")
 
     while True:
         print("\n" + "=" * 60)
