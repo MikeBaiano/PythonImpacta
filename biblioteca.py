@@ -872,9 +872,9 @@ def menu_principal():
     """Menu interativo do sistema de biblioteca"""
 
     while True:
-        print("\n" + "=" * 60)
+        print("\n" + "=" * 70)
         print("📚 BIBLIOTECA - MENU PRINCIPAL")
-        print("=" * 60)
+        print("=" * 70)
         print("  1. 📖 Cadastrar Livro")
         print("  2. 👤 Cadastrar Membro")
         print("  3. 📤 Realizar Empréstimo")
@@ -885,7 +885,7 @@ def menu_principal():
         print("  8. 📋 Relatório de Empréstimos")
         print("  9. 📊 Estatísticas da Biblioteca")
         print("  0. 🚪 Sair")
-        print("=" * 60)
+        print("=" * 70)
 
         opcao = input("\nEscolha uma opção: ").strip()
 
