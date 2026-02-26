@@ -101,6 +101,29 @@ st.markdown(
     header[data-testid="stHeader"] {
         background: rgba(0, 0, 0, 0);
     }
+
+    /* Texto dos radio buttons, labels e widgets na sidebar */
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] .stRadio label,
+    [data-testid="stSidebar"] .stRadio div[role="radiogroup"] label,
+    [data-testid="stSidebar"] .stSelectbox label,
+    [data-testid="stSidebar"] .stMultiSelect label,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] p {
+        color: #e2e8f0 !important;
+    }
+
+    /* Texto dentro dos radio buttons (as opções) */
+    [data-testid="stSidebar"] div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
+        color: #cbd5e0 !important;
+        font-weight: 500;
+    }
+
+    /* Texto dentro de selectbox e multiselect */
+    [data-testid="stSidebar"] [data-baseweb="select"] span {
+        color: #e2e8f0 !important;
+    }
     </style>
     """,
     unsafe_allow_html=True,
