@@ -11,7 +11,7 @@ from datetime import datetime, date
 from dotenv import load_dotenv
 from supabase import create_client
 
-# ========== CONFIGURAÇÃO DA PÁGINA ==========
+# ========== CONFIGURAÇÃO DA PÁGINA =========
 st.set_page_config(
     page_title="💰 Dashboard Financeiro",
     page_icon="💰",
