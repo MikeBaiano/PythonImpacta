@@ -1,59 +1,20 @@
+num_semana = int(input("Digite o número da semana: "))
 
-num1 = int(input())
-num2 = int(input())
-num3 = int(input())
-num4 = int(input())
-num5 = int(input())
+if num_semana == 1:
+    print("Domingo")
+elif num_semana == 2:
+    print("Segunda-feira")
+elif num_semana == 3:
+    print("Terça-feira")
+elif num_semana == 4:
+    print("Quarta-feira")
+elif num_semana == 5:
+    print("Quinta-feira")
+elif num_semana == 6:
+    print("Sexta-feira")
+elif num_semana == 7:
+    print("Sábado")
+else:
+    print("Número inválido!")
 
-x = 0
-
-if num1 % 2 == 0:
-    x += 1
-if num2 % 2 == 0:
-    x += 1
-if num3 % 2 == 0:
-    x += 1
-if num4 % 2 == 0:
-    x += 1
-if num5 % 2 == 0:
-    x += 1
-
-print(f"{x} valores pares")
-
-# nome = str(input())
-# fixSalary = float(input())
-# sales = float(input())
-
-# totalSalary = fixSalary + sales * 0.15
-
-# print(f'TOTAL = R$ {totalSalary:.2f}')
-
-notas = input().split()
-
-N1 = float(notas[0])
-N2 = float(notas[1])
-N3 = float(notas[2])
-N4 = float(notas[3])
-
-Media = (N1 * 2 + N2 * 3 + N3 * 4 + N4 * 1)/10
-
-if 5 <= Media < 7:
-    print(f'Media: {Media:.1f}')
-    print('Aluno em exame.')
-    E = float(input())
-    print(f'Nota do exame: {E:.1f}')
-    Mf = (E + Media)/2
-    if Mf >= 5:
-        print('Aluno aprovado.')
-    else:
-        print('Aluno reprovado.')
-    print(f'Media Final: {Mf:.1f}')
-
-if Media >= 7:
-    print(f'Media: {Media:.1f}')
-    print('Aluno aprovado.')
-    
-if Media < 5:
-    print(f'Media: {Media:.1f}')
-    print('Aluno reprovado.')
 
