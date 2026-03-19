@@ -30,15 +30,60 @@ import math as mt
 
 # print(soma(10, 20))
 
-def par_impar(n):
-    if n % 2 == 0:
-        return "Sim"
-    else:
-        return "Não"
+# def par_impar(n):
+#     if n % 2 == 0:
+#         return "Sim"
+#     else:
+#         return "Não"
 
 
 
-print(f'{10} é par? {par_impar(10)}')
-print(f'{11} é par? {par_impar(11)}')
+# print(f'{10} é par? {par_impar(10)}')
+# print(f'{11} é par? {par_impar(11)}')
 
-print(f'O valor de pi é {mt.pi:.200f}')
+# print(f'O valor de pi é {mt.pi:.200f}')
+
+# X = int(input())
+# # range vai de 1 até X (colocamos X + 1 e a função para antes dele)
+# for i in range(1, X + 1):
+#     if i % 2 != 0: # Checa se o resto da divisão por 2 é diferente de zero
+#         print(i)
+
+# x = int(input())
+# y = int(input())
+
+# menor = min(x, y)
+# maior = max(x, y)
+
+# soma = 0
+
+# for i in range(menor + 1, maior):
+#     if i % 2 != 0:
+#         soma += i
+        
+# print(soma)
+
+# n = int(input())
+
+# for i in range(1, n + 1):
+#     if i % 2 == 0:
+#         print(f'{i}^{2} = {i**2}')
+
+maior = 0
+posição = 0
+
+for i in range(1, 101):
+    n = int(input())
+    if n > maior:
+        maior = n
+        posição = i
+
+print(maior)
+print(posição)
+
+numero = 5
+fatorial = 1  # Começamos em 1 porque ele é o elemento neutro da multiplicação
+# Fazemos o loop girar do 1 até o número desejado
+for i in range(1, numero + 1):
+    fatorial = fatorial * i
+print(fatorial)  # Vai imprimir 120
