@@ -87,3 +87,9 @@ fatorial = 1  # Começamos em 1 porque ele é o elemento neutro da multiplicaç�
 for i in range(1, numero + 1):
     fatorial = fatorial * i
 print(fatorial)  # Vai imprimir 120
+
+x = int(input())
+
+for i in range(1, x + 1):
+    if i % 2 !=0:
+        print(i)
