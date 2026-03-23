@@ -5,17 +5,13 @@
 
 def bissexto(a):
     """Devolve um valor booleano indicando se o ano a é bissexto ou não."""
-    if (a % 4 == 0 and a % 100 != 0) or \
-       (a % 400 == 0):
-        return True
-    else:
-        return False
+    return (a % 4 == 0 and a % 100 != 0) or (a % 400 == 0)
 
 def dia_maximo(m, a):
     """Devolve como resposta o número máximo de dias do mês m, considerando o ano a."""
     if m == 2: 
         return 28 + bissexto(a)
-    elif m == 4 or m == 6 or m == 9 or m == 11:
+    elif m in [4, 6, 9, 11]:
         return 30
     else:
         return 31
@@ -37,7 +33,7 @@ def exibe_ds(d, m, a):
             m = 1
             a += 1
 
-    print(f'{d}/{m}/{a}')
+    print(f'{d:02d}/{m:02d}/{a:04d}')
 
 def main():
     """Função principal responsável pelo início da execução do programa."""
