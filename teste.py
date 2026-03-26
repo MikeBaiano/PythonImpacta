@@ -93,3 +93,22 @@ x = int(input())
 for i in range(1, x + 1):
     if i % 2 !=0:
         print(i)
+
+# Contagem de itens com crédito
+
+credito = float(input('Seu crédito: '))
+total = 0
+contador = 1
+
+preco = float(input('Preço do item: '))
+while credito >= preco:
+    total += preco
+    credito -= preco
+    preco = float(input('Preço de mais um item: '))
+    contador += 1
+if credito < preco:
+    print(f'Compra do item {contador} negada!')
+    
+print(f'Itens Comprados: {contador - 1}')
+print(f'Total da compra: R$ {total:.2f}')
+print(f'Crédito restante: R$ {credito:.2f}')
