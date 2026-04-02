@@ -112,3 +112,4 @@ if credito < preco:
 print(f'Itens Comprados: {contador - 1}')
 print(f'Total da compra: R$ {total:.2f}')
 print(f'Crédito restante: R$ {credito:.2f}')
+
