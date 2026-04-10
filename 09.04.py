@@ -162,3 +162,88 @@ while caso_atual < n_casos:
         feedback_atual += 1
         
     caso_atual += 1
+
+# Roberto e a Sala Desenfreada 1953
+
+# O problema diz: "A leitura do programa deve acabar com fim de arquivo"
+# Então voltamos para a estrutura do While True + try / except!
+while True:
+    try:
+        # Lê a quantidade de alunos para o caso atual
+        n = int(input())
+        
+        # Criamos as nossas "caixinhas" contadoras zeradas para a contagem desta sala
+        epr = 0
+        ehd = 0
+        intrusos = 0
+        
+        aluno_atual = 0
+        # Fazemos um laço rodando exatamente 'n' vezes para ler a linha de cada aluno
+        while aluno_atual < n:
+            # Ao ler "27454 CCO", o split() transforma em -> ['27454', 'CCO']
+            dados = input().split()
+            
+            # O curso é sempre o segundo elemento dessa lista (índice 1 no python)
+            sigla = dados[1]
+            
+            # E agora fazemos os If / else normais para pontuar em cada caixa
+            if sigla == "EPR":
+                epr += 1
+            elif sigla == "EHD":
+                ehd += 1
+            else:
+                intrusos += 1
+                
+            aluno_atual += 1
+                
+        # Por fim, apresentamos os resultados com a formatação exigida pelo Beecrowd!
+        print(f"EPR: {epr}")
+        print(f"EHD: {ehd}")
+        print(f"INTRUSOS: {intrusos}")
+        
+    except EOFError:
+        break
+
+# Jogando Dardos Por Distância 3037
+# O enunciado diz que a PRIMEIRA linha passa o número 'N' de testes.
+# Logo, não precisamos mais do Try/Except, voltamos pro esquema normal de contagem!
+
+n_casos = int(input())
+caso_atual = 0
+
+while caso_atual < n_casos:
+    
+    # As próximas 3 linhas sempre serão os dardos do JOÃO, então fazemos um laço
+    # que roda exatamente 3 vezes para acumular os pontos dele.
+    pontos_joao = 0
+    dardo_joao = 0
+    
+    while dardo_joao < 3:
+        # Lemos os valores "X e D" da mesma linha, quebramos com split()
+        dados = input().split()
+        x = int(dados[0])
+        d = int(dados[1])
+        
+        # A regra é pontuação (X) multiplicado pela distância (D)
+        pontos_joao += (x * d)
+        dardo_joao += 1
+        
+    # As 3 linhas consecutivas sempre serão da MARIA, aplicamos a mesma lógica
+    pontos_maria = 0
+    dardo_maria = 0
+    
+    while dardo_maria < 3:
+        dados = input().split()
+        x = int(dados[0])
+        d = int(dados[1])
+        
+        pontos_maria += (x * d)
+        dardo_maria += 1
+        
+    # Por fim, comparamos quem fez mais pontos e imprimimos o vencedor
+    if pontos_joao > pontos_maria:
+        print("JOAO")
+    else:
+        print("MARIA")
+        
+    caso_atual += 1
