@@ -69,47 +69,76 @@ import math as mt
 #     if i % 2 == 0:
 #         print(f'{i}^{2} = {i**2}')
 
-maior = 0
-posição = 0
+# maior = 0
+# posição = 0
 
-for i in range(1, 101):
-    n = int(input())
-    if n > maior:
-        maior = n
-        posição = i
+# for i in range(1, 101):
+#     n = int(input())
+#     if n > maior:
+#         maior = n
+#         posição = i
 
-print(maior)
-print(posição)
+# print(maior)
+# print(posição)
 
-numero = 5
-fatorial = 1  # Começamos em 1 porque ele é o elemento neutro da multiplicação
-# Fazemos o loop girar do 1 até o número desejado
-for i in range(1, numero + 1):
-    fatorial = fatorial * i
-print(fatorial)  # Vai imprimir 120
+# numero = 5
+# fatorial = 1  # Começamos em 1 porque ele é o elemento neutro da multiplicação
+# # Fazemos o loop girar do 1 até o número desejado
+# for i in range(1, numero + 1):
+#     fatorial = fatorial * i
+# print(fatorial)  # Vai imprimir 120
 
-x = int(input())
+# x = int(input())
 
-for i in range(1, x + 1):
-    if i % 2 !=0:
-        print(i)
+# for i in range(1, x + 1):
+#     if i % 2 !=0:
+#         print(i)
 
-# Contagem de itens com crédito
+# # Contagem de itens com crédito
 
-credito = float(input('Seu crédito: '))
-total = 0
-contador = 1
+# credito = float(input('Seu crédito: '))
+# total = 0
+# contador = 1
 
-preco = float(input('Preço do item: '))
-while credito >= preco:
-    total += preco
-    credito -= preco
-    preco = float(input('Preço de mais um item: '))
-    contador += 1
-if credito < preco:
-    print(f'Compra do item {contador} negada!')
+# preco = float(input('Preço do item: '))
+# while credito >= preco:
+#     total += preco
+#     credito -= preco
+#     preco = float(input('Preço de mais um item: '))
+#     contador += 1
+# if credito < preco:
+#     print(f'Compra do item {contador} negada!')
     
-print(f'Itens Comprados: {contador - 1}')
-print(f'Total da compra: R$ {total:.2f}')
-print(f'Crédito restante: R$ {credito:.2f}')
+# print(f'Itens Comprados: {contador - 1}')
+# print(f'Total da compra: R$ {total:.2f}')
+# print(f'Crédito restante: R$ {credito:.2f}')
 
+# Números perfeitos 1164
+n_casos = int(input())
+caso_atual = 0
+
+# Laço de fora: vai rodar exatamente "n_casos" vezes
+while caso_atual < n_casos:
+    x = int(input())
+
+    soma_divisores = 0
+    divisor = 1
+
+    # Laço de dentro: procurar divisores
+    # Vamos rodar do 1 até a metade de 'x' que já é suficiente
+    while divisor <= x // 2:
+        if (
+            x % divisor == 0
+        ):  # Verifica se o resto da divisão é 0 (ou seja, se é um divisor exato)
+            soma_divisores += divisor
+
+        divisor += 1  # Passamos para o próximo divisor para ir testando
+
+    # Quando o laço de dentro acaba, a gente verifica se a soma deu o próprio número x
+    if soma_divisores == x:
+        print(f"{x} eh perfeito")
+    else:
+        print(f"{x} nao eh perfeito")
+
+    # E então não podemos esquecer de contabilizar que lemos mais um caso!
+    caso_atual += 1
