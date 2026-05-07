@@ -84,3 +84,27 @@ for i in range(1000):
         x = 0
     print(f'N[{i}] = {x}')
     x += 1
+
+# 1961 beecrowd - pulo do sapo
+
+# Lê P (pulo) e N (número de canos)
+p, n = map(int, input().split()) 
+
+# Lê todas as alturas de uma vez e transforma em uma lista de números
+alturas = list(map(int, input().split()))[:n]
+
+ganhou = True
+
+for i in range(n - 1): # Vai até o penúltimo para comparar com o i + 1
+    diferenca = alturas[i+1] - alturas[i]
+    
+    # Usamos abs() para pegar o valor positivo da diferença (independente de ser subida ou descida)
+    if abs(diferenca) > p:
+        ganhou = False
+        break
+
+if ganhou:
+    print("YOU WIN")
+else:
+    print("GAME OVER")
+
